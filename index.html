@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Pengolahan Sampah - Kotoran Kambing Kompos Organik</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #3c8ce7, #00eaff);
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .sampah-list, .produk-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .item {
+            background: #3498db;
+            color: white;
+            padding: 15px;
+            margin: 10px;
+            width: 180px;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .kalkulator, .cara-pembuatan {
+            text-align: center;
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            margin: 5px;
+            width: 200px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            width: 200px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #219150;
+        }
+        .hasil-output {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .cara-pembuatan ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .cara-pembuatan li {
+            background: #ecf0f1;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 5px;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Aplikasi Pengolahan Sampah - Kotoran Kambing Kompos Organik</h1>
+    
+    <h2>Jenis Sampah</h2>
+    <div class="sampah-list">
+        <div class="item">Kotoran Kambing</div>
+        <div class="item">Daun</div>
+        <div class="item">Sisa Makanan</div>
+    </div>
+
+    <h2>Produk Dihasilkan</h2>
+    <div class="produk-list">
+        <div class="item">Kotoran Kambing Kompos Organik</div>
+    </div>
+
+    <div class="cara-pembuatan">
+        <h2>Cara Pembuatan Kotoran Kambing Kompos Organik</h2>
+        <ul>
+            <li>1. Kumpulkan kotoran kambing segar, pastikan bebas dari kontaminasi bahan kimia.</li>
+            <li>2. Campurkan kotoran kambing dengan bahan organik lain seperti daun kering dan sisa makanan untuk menyeimbangkan kadar karbon dan nitrogen.</li>
+            <li>3. Aduk campuran secara rutin agar aerasi tetap terjaga dan proses pengomposan berjalan cepat.</li>
+            <li>4. Jaga kelembapan campuran; tambahkan air secukupnya jika diperlukan, tetapi hindari kondisi terlalu basah.</li>
+            <li>5. Simpan campuran di tempat yang teduh dan berventilasi selama 3-4 minggu.</li>
+            <li>6. Setelah proses pengomposan selesai, kotoran kambing kompos organik siap digunakan sebagai pupuk alami.</li>
+        </ul>
+    </div>
+
+    <div class="kalkulator">
+        <h2>Kalkulator Kotoran Kambing Kompos Organik</h2>
+        <input type="number" id="jumlahSampah" placeholder="Masukkan berat kotoran (kg)">
+        <button onclick="hitungKompos()">Hitung</button>
+        <p class="hasil-output" id="hasil"></p>
+        <p class="hasil-output" id="jumlahKompos"></p>
+    </div>
+
+    <div class="kalkulator">
+        <h2>Kalkulator Harga Kotoran</h2>
+        <input type="number" id="beratSampah" placeholder="Masukkan berat kotoran (kg)">
+        <button onclick="hitungHarga()">Hitung Harga</button>
+        <p class="hasil-output" id="harga"></p>
+    </div>
+</div>
+
+<script>
+    function hitungKompos() {
+        var berat = document.getElementById("jumlahSampah").value;
+        var konversiKompos = 0.4; // 40% dari kotoran diolah menjadi kompos organik
+        if (berat > 0) {
+            var jumlahKompos = berat * konversiKompos;
+            document.getElementById("hasil").innerHTML = "Kotoran kambing sebanyak " + berat + " kg dapat diolah menjadi kompos organik!";
+            document.getElementById("jumlahKompos").innerHTML = "Hasil kotoran kambing kompos organik: " + jumlahKompos.toFixed(2) + " kg.";
+        } else {
+            document.getElementById("hasil").innerHTML = "Masukkan berat yang valid!";
+            document.getElementById("jumlahKompos").innerHTML = "";
+        }
+    }
+
+    function hitungHarga() {
+        var berat = document.getElementById("beratSampah").value;
+        var hargaPerKg = 7000;
+        if (berat > 0) {
+            var totalHarga = berat * hargaPerKg;
+            document.getElementById("harga").innerHTML = "Total harga kotoran: Rp" + totalHarga.toLocaleString("id-ID");
+        } else {
+            document.getElementById("harga").innerHTML = "Masukkan berat yang valid!";
+        }
+    }
+</script>
+
+</body>
+</html>
